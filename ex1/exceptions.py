@@ -26,10 +26,12 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import ex1.functions as func
+
+
 '''
 Module for testing exception handling
 '''
-
 ######################
 # Raising Exceptions #
 ######################
@@ -37,6 +39,27 @@ Module for testing exception handling
 # Use the function search_n from the functions module inside a new function
 # also named search_n. The function should do the same as functions.search_n
 # but if the variable is not found in the list then raise a ValueError.
+def search_n(l, x):
+    """
+    Returns the position of x in list l and the value of x. Raises an error 
+    if x is not contained in the list.
+
+    Parameters
+    ----------
+    l : list
+    x : int, float or str
+
+    Returns
+    -------
+    i : int
+        Position of x in list l. 
+    val : int, float or str
+        Value of x. 
+    """
+    i, val = func.search_n(l, x)
+    if i == None:
+        raise ValueError
+    return i, val
 
 ########################
 # Excepting Exceptions #
@@ -46,3 +69,25 @@ Module for testing exception handling
 # the first by the second. This function should handle exceptions that might
 # occur print out what went wrong and return None if no results could be
 # computed.
+def safe_divide(a, b):
+    """
+    Returns the division of two numbers.
+
+    Parameters
+    ----------
+    a, b : int or float
+
+    Returns
+    -------
+    result : int or float
+        Default is None.
+    """
+    result = None
+    try:
+        result = a/b
+    except ZeroDivisionError as e:
+        print("ZeroDivisionError: ", e)
+    except TypeError as e:
+        print("TypeError:", e)
+        print("Arguments must be of type integer or float!")        
+    return result        
