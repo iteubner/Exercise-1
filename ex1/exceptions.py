@@ -41,8 +41,7 @@ Module for testing exception handling
 # but if the variable is not found in the list then raise a ValueError.
 def search_n(l, x):
     """
-    Returns the position of x in list l and the value of x. Raises an error 
-    if x is not contained in the list.
+    Returns the position of x in list l and the value of x. 
 
     Parameters
     ----------
@@ -57,7 +56,8 @@ def search_n(l, x):
         Value of x. 
     """
     i, val = func.search_n(l, x)
-    if i == None:
+    # raise an error if x is not contained in the list
+    if i == None:        
         raise ValueError
     return i, val
 

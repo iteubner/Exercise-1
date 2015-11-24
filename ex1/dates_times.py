@@ -46,7 +46,8 @@ def last_of_month(dt):
     Returns
     -------
     lastday : datetime    
-    """        
+    """
+    # jump to the first day of the next month and subtract one day
     lastday = dt + rdelta(months=1, days=-dt.day)
     return lastday
 
@@ -93,6 +94,8 @@ def how_long(dt, ref):
     sub = "since"
     if dt < ref:
         sub = "until"
+        # change the order of the substraction to get the correct 
+        # time difference
         d = ref - dt
     string = s.format(d.days, d.seconds // 60, d.seconds % 60, sub, str(ref))
     if dt == ref:
