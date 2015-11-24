@@ -308,10 +308,10 @@ def search_list(a, b):
     index = []
     values = []
     for x in b:
-        i,val = search_n(a, x)
-        if i != None:
+        if x in a:
+            i = a.index(x)
             index.append(i)
-            values.append(val)
+            values.append(x)
     d = lists_to_dict(index, values)
     return d    
 
@@ -337,7 +337,7 @@ def dict_to_string(d, s):
         Returns an empty string if the dictionary values do not 
         contain any strings.
     """
-    y=[]
+    y = []
     for x in d.values():
         if isinstance(x, str):
             y.append(x)  
