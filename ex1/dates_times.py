@@ -29,27 +29,29 @@
 from dateutil.relativedelta import relativedelta as rdelta
 from datetime import time
 
-
 '''
 Exercises for using the datetime and the calendar module
 '''
+
+
 # Define a function named last_of_month that takes an argument dt of type date
 # and returns a date object representing the last day of the month dt was in.
 def last_of_month(dt):
     """
     Returns the last day of a month.
-    
+
     Parameters
     ----------
     dt : datetime
-    
+
     Returns
     -------
-    lastday : datetime    
+    lastday : datetime
     """
     # jump to the first day of the next month and subtract one day
     lastday = dt + rdelta(months=1, days=-dt.day)
     return lastday
+
 
 # Define a function named feed_the_gremlin which takes a time object as an
 # argument. It should return False between midnight and 6:30AM and True
@@ -57,11 +59,11 @@ def last_of_month(dt):
 def feed_the_gremlin(tt):
     """
     This function determines if a time object lies between 6:30AM and 0:00AM.
-    
+
     Parameters
     ----------
     tt : time
-    
+
     Returns
     -------
     test : boolean
@@ -78,7 +80,7 @@ def feed_the_gremlin(tt):
 def how_long(dt, ref):
     """
     Returns the difference between two dates as a string.
-    
+
     Parameters
     ----------
     dt : datetime
@@ -87,14 +89,14 @@ def how_long(dt, ref):
         reference date
     Returns
     -------
-    string : string
+    string : str
     """
     s = "{} days, {} minutes, {} seconds {} {}"
     d = dt - ref
     sub = "since"
     if dt < ref:
         sub = "until"
-        # change the order of the substraction to get the correct 
+        # change the order of the substraction to get the correct
         # time difference
         d = ref - dt
     string = s.format(d.days, d.seconds // 60, d.seconds % 60, sub, str(ref))

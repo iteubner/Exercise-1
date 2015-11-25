@@ -43,6 +43,7 @@ def f():
 # Basic function definitions #
 ##############################
 
+
 # Define a function named add that takes two numbers and returns the sum.
 def add(a, b):
     """
@@ -57,6 +58,7 @@ def add(a, b):
     int or float
     """
     return a + b
+
 
 # Define a function named to_tuple that takes three arguments and returns a
 # tuple of these three arguments.
@@ -74,6 +76,7 @@ def to_tuple(a, b, c):
     """
     return a, b, c
 
+
 # Define a function named check5 that checks if a number is greater than 5 and
 # returns True or False.
 def check5(num):
@@ -89,6 +92,7 @@ def check5(num):
     boolean
     """
     return num > 5
+
 
 # Define a function named check_n that check is a number is greater than n. The
 # number should be the first argument and n the second
@@ -106,6 +110,7 @@ def check_n(num, threshold):
     """
     return num > threshold
 
+
 #########
 # LISTS #
 #########
@@ -117,7 +122,7 @@ def check_n(num, threshold):
 # False if the number was greater than or equal to n.
 def check_list(l, n):
     """
-    This function determines if elements of a list are greater than or equal 
+    This function determines if elements of a list are greater than or equal
     to a threshold.
 
     Parameters
@@ -132,6 +137,7 @@ def check_list(l, n):
     """
     test = [x >= n for x in l]
     return test
+
 
 # Define a function named check_list_nth that does the same as check_list but
 # uses every nth element of the input list (including the first one). You will
@@ -152,12 +158,13 @@ def check_list_nth(l, n, nth):
     Returns
     -------
     test : list of boolean
-        Length of test is equal to the length of the list that contains only 
+        Length of test is equal to the length of the list that contains only
         every nth element of the input list.
     """
     l = l[::nth]
     test = [x >= n for x in l]
     return test
+
 
 # Define a function named add_new_list that takes two inputs. A list l and a
 # second variable x to add to the list. Return a new list containing x as the
@@ -178,6 +185,7 @@ def add_new_list(l, x):
     l_out.append(x)
     return l_out
 
+
 # Define a function named remove_nth that takes a list and removes every nth
 # element (including the first one). Use a keyword named nth to set the default
 # value for nth to 2.
@@ -189,7 +197,7 @@ def remove_nth(l, nth=2):
     ----------
     l : list
     nth : int, optional
-        Increment for the choice of list elements to be removed from list l. 
+        Increment for the choice of list elements to be removed from list l.
         Default is 2.
 
     Returns
@@ -200,13 +208,14 @@ def remove_nth(l, nth=2):
     del l_out[::nth]
     return l_out
 
+
 # Define a function named search_n that takes a list and a variable x and
 # searches for x in the list. If the variable is found return the index of the
 # variable in the list and the variable. Otherwise use None for both return
 # values
 def search_n(l, x):
     """
-    Returns the position of x in list l and the value of x. 
+    Returns the position of x in list l and the value of x.
 
     Parameters
     ----------
@@ -216,18 +225,19 @@ def search_n(l, x):
     Returns
     -------
     i : int
-        Position of x in list l. 
+        Position of x in list l.
         If x is not element of l, i is None.
     val : int, float or str
-        Value of x. 
+        Value of x.
         If x is not element of l, val is None.
     """
     i = None
     val = None
     if x in l:
         i = l.index(x)
-        val = l[i]
+        val = x
     return i, val
+
 
 ################
 # Dictionaries #
@@ -238,7 +248,7 @@ def search_n(l, x):
 # the argument as the value.
 def args_to_dict(a, b, c):
     """
-    Returns a dictionary containing the input arguments as values and 
+    Returns a dictionary containing the input arguments as values and
     their position as keys.
 
     Parameters
@@ -249,14 +259,15 @@ def args_to_dict(a, b, c):
     -------
     d : dict
     """
-    d = {index: value for index,value in enumerate([a, b, c])}
+    d = {index: value for index, value in enumerate([a, b, c])}
     return d
+
 
 # BONUS: Write a function named args_to_dict_general that does the same for any
 # number of arguments
 def args_to_dict_general(*args):
     """
-    Returns a dictionary containing the input arguments as values and 
+    Returns a dictionary containing the input arguments as values and
     their position as keys.
 
     Parameters
@@ -267,8 +278,9 @@ def args_to_dict_general(*args):
     -------
     d : dict
     """
-    d = {index: value for index,value in enumerate(args)}
+    d = {index: value for index, value in enumerate(args)}
     return d
+
 
 # Define a function named lists_to_dict that takes two lists of equal lenght
 # named keys and values and builds a dictionary out of them.
@@ -284,8 +296,9 @@ def lists_to_dict(keys, values):
     -------
     d : dict
     """
-    d = {key: values[index] for index,key in enumerate(keys)}
-    return d 
+    d = {key: values[index] for index, key in enumerate(keys)}
+    return d
+
 
 # Define a function named search_list that takes two lists a and b. The
 # function searches for all elements of b in list a. The return value should be
@@ -313,7 +326,8 @@ def search_list(a, b):
             index.append(i)
             values.append(x)
     d = lists_to_dict(index, values)
-    return d    
+    return d
+
 
 # Define a function named dict_to_string that takes a dictionary and a
 # separator string. The function should only take elements out of the
@@ -322,8 +336,8 @@ def search_list(a, b):
 # Return an empty string if there are no strings in the dictionary.
 def dict_to_string(d, s):
     """
-    Returns all strings contained in the values of the dictionary as a single 
-    string seperated by a specified delimiter. 
+    Returns all strings contained in the values of the dictionary as a single
+    string seperated by a specified delimiter.
 
     Parameters
     ----------
@@ -334,15 +348,16 @@ def dict_to_string(d, s):
     Returns
     -------
     str_out : str
-        Returns an empty string if the dictionary values do not 
+        Returns an empty string if the dictionary values do not
         contain any strings.
     """
     y = []
     for x in d.values():
         if isinstance(x, str):
-            y.append(x)  
-    str_out = s.join(y)    
+            y.append(x)
+    str_out = s.join(y)
     return str_out
+
 
 # Define a function named classify_by_type which takes a list l and returns a
 # dictionary d. The d must have the keys 'int' and 'str' which contain the
@@ -362,7 +377,7 @@ def classify_by_type(l):
     d : dict
         Keys are 'int', 'str' and 'others'.
     """
-    d = dict.fromkeys(['int','str','others'])
+    d = dict.fromkeys(['int', 'str', 'others'])
     for i in d.keys():
         d[i] = []
     for x in l:

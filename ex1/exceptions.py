@@ -28,10 +28,11 @@
 
 import ex1.functions as func
 
-
 '''
 Module for testing exception handling
 '''
+
+
 ######################
 # Raising Exceptions #
 ######################
@@ -41,7 +42,7 @@ Module for testing exception handling
 # but if the variable is not found in the list then raise a ValueError.
 def search_n(l, x):
     """
-    Returns the position of x in list l and the value of x. 
+    Returns the position of x in list l and the value of x.
 
     Parameters
     ----------
@@ -51,15 +52,16 @@ def search_n(l, x):
     Returns
     -------
     i : int
-        Position of x in list l. 
+        Position of x in list l.
     val : int, float or str
-        Value of x. 
+        Value of x.
     """
     i, val = func.search_n(l, x)
     # raise an error if x is not contained in the list
-    if i == None:        
+    if i is None:
         raise ValueError
     return i, val
+
 
 ########################
 # Excepting Exceptions #
@@ -89,5 +91,5 @@ def safe_divide(a, b):
         print("ZeroDivisionError: ", e)
     except TypeError as e:
         print("TypeError:", e)
-        print("Arguments must be of type integer or float!")        
-    return result        
+        print("Arguments must be of type integer or float!")
+    return result
