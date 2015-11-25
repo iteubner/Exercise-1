@@ -45,7 +45,7 @@ l = [a, width, height]
 # create a dictionary d. The keys should be the variable names you just created.
 # The values will be the actual values of the variables.
 d = {'a': a,
-    'width': width,
-    'height': height,
-    'l': l
-    }
+     'width': width,
+     'height': height,
+     'l': l
+     }
