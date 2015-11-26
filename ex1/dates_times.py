@@ -26,8 +26,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from dateutil.relativedelta import relativedelta as rdelta
-from datetime import time
+from datetime import date, timedelta, time
 
 '''
 Exercises for using the datetime and the calendar module
@@ -49,7 +48,13 @@ def last_of_month(dt):
     lastday : datetime
     """
     # jump to the first day of the next month and subtract one day
-    lastday = dt + rdelta(months=1, days=-dt.day)
+    if dt.month == 12:
+        m = 1
+        y = dt.year + 1
+    else:
+        m = dt.month + 1
+        y = dt.year
+    lastday = date(y, m, 1) + timedelta(days=-1)
     return lastday
 
 
@@ -96,7 +101,7 @@ def how_long(dt, ref):
     sub = "since"
     if dt < ref:
         sub = "until"
-        # change the order of the substraction to get the correct
+        # change the order in the subtraction to get the correct
         # time difference
         d = ref - dt
     string = s.format(d.days, d.seconds // 60, d.seconds % 60, sub, str(ref))
